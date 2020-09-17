@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9E1D5A8E-E626-4603-B3B3-8FC1AF6CB607}</ProjectGuid>
+    <ProjectGuid>{AA8EC9C8-AC69-4F44-BF2A-A9301CB5FA60}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Neural_Networks</RootNamespace>
-    <AssemblyName>Neural_Networks</AssemblyName>
+    <RootNamespace>Neuron</RootNamespace>
+    <AssemblyName>Neuron</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -34,10 +34,6 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Neuron.cs" />
-    <Compile Include="NeuronType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
