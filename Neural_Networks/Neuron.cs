@@ -42,6 +42,14 @@ namespace Neural_Networks
             var result = 1.0 / (1.0 + Math.Pow(Math.E, -x));
             return result;
         }
+        //Удалить после добавления обучения
+        public void SetWights(params double[] weights)
+        {
+            for (int i = 0; i < weights.Length; i++)
+            {
+                Weights[i] = weights[i];
+            }
+        }
 
         public override string ToString()
         {
