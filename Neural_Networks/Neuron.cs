@@ -20,21 +20,20 @@ namespace Neural_Networks
 
         public double FeedForward(List<double> inputs)
         {
-            if (inputs == Weights)
-            {
                 var sum = 0.0;
                 for (int i = 0; i < inputs.Count; i++)
                 {
                     sum += inputs[i] * Weights[i];
                 }
-                Output = Sigmoid(sum);
-
-            }
-            else
-            {
-                throw new Exception("Не совпадает количество элементов");
-            }
-            return Output;
+                if(NeuronType != NeuronType.Input)
+                {
+                    Output = Sigmoid(sum);
+                }
+                else
+                {
+                    Output = sum;
+                }
+                return Output;
         }
 
         private double Sigmoid(double x)

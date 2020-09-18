@@ -15,15 +15,13 @@ namespace Neural_Networks
         {
             Topology = topology;
             Layers = new List<Layer>();
-            CreateHiddenLayer();
             CreateInputLayer();
+            CreateHiddenLayer();
             CreateOutputLayer();
         }
 
         public Neuron FeedForward(List<double> inputSignals)
         {
-            if(Topology.InputCount == inputSignals.Count)
-            {
                 SendSignalsToInputNeurons(inputSignals);
                 FeedForwardAllLayersAfterInput();
                 if (Topology.OutputCount == 1)
@@ -34,7 +32,6 @@ namespace Neural_Networks
                 {
                     return Layers.Last().Neurons.OrderByDescending(n => n.Output).First();
                 }
-            }
         }
 
         private void FeedForwardAllLayersAfterInput()
