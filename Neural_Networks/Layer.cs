@@ -9,8 +9,8 @@ namespace Neural_Networks
     public class Layer//слой
     {
         public List<Neuron> Neurons { get; }
-        public int Count => Neurons?.Count ?? 0;
-
+        public int NeuronCount => Neurons?.Count ?? 0;
+        public NeuronType Type { get; }
         public Layer(List<Neuron> neurons , NeuronType type = NeuronType.Normal)
         {
             //TODO : validation
@@ -26,6 +26,9 @@ namespace Neural_Networks
             }
             return result;
         }
-
+        public override string ToString()
+        {
+            return Type.ToString();
+        }
     }
 }
