@@ -15,13 +15,14 @@ namespace Neural_Networks
         {
             var result = new List<int>();
             Bitmap image = new Bitmap(path);//Bitmap — объект, используемый для работы с изображениями, определяемыми данными пикселей.
-            Height = image.Height;
-            Width = image.Width;
-            for (int y = 0; y < image.Height; y++)
+            var resizeImage = new Bitmap(image, new Size(10,10));
+            Height = resizeImage.Height;
+            Width = resizeImage.Width;
+            for (int y = 0; y < resizeImage.Height; y++)
             {
-                for (int x = 0; x < image.Width; x++)
+                for (int x = 0; x < resizeImage.Width; x++)
                 {
-                    var pixel = image.GetPixel(x, y);//получение пикселя
+                    var pixel = resizeImage.GetPixel(x, y);//получение пикселя
                     var value = Brigtness(pixel);
                     result.Add(value);
                 }
