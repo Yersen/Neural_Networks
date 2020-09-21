@@ -20,29 +20,32 @@ namespace Neural_Networks
             CreateOutputLayer();
         }
 
-        public Neuron FeedForward(params double [] inputSignals)
+        public Neuron FeedForward(params double[] inputSignals)
         {
-                SendSignalsToInputNeurons(inputSignals);
-                FeedForwardAllLayersAfterInput();
-                if (Topology.OutputCount == 1)
-                {
-                    return Layers.Last().Neurons[0];
-                }
-                else
-                {
-                    return Layers.Last().Neurons.OrderByDescending(n => n.Output).First();
-                }
+
+            SendSignalsToInputNeurons(inputSignals);
+            FeedForwardAllLayersAfterInput();
+            if (Topology.OutputCount == 1)
+            {
+                return Layers.Last().Neurons[0];
+            }
+            else
+            {
+                return Layers.Last().Neurons.OrderByDescending(n => n.Output).First();
+            }
         }
 
         public double Learn(double [] expected, double[,] inputs, int epoch)//количество эпох обучения -epoch
         {
+            var signals = Normalization(inputs);
+
             var error = 0.0;
             for (int i = 0; i < expected.Length; i++)
             {
                 for (int j = 0; j < expected.Length; j++)
                 {
                     var output = expected[j];
-                    var input = GetRow(inputs, j);
+                    var input = GetRow(signals, j);
 
                     error += BackPropagation(output, input);
                 }
