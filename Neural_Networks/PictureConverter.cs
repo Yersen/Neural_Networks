@@ -11,9 +11,9 @@ namespace Neural_Networks
         public int Boundary { get; set; } = 128;
         public int Height { get; set; }
         public int Width { get; set; }
-        public List<int> Convert(string path)
+        public double[] Convert(string path)
         {
-            var result = new List<int>();
+            var result = new List<double>();
             Bitmap image = new Bitmap(path);//Bitmap — объект, используемый для работы с изображениями, определяемыми данными пикселей.
             var resizeImage = new Bitmap(image, new Size(10,10));
             Height = resizeImage.Height;
@@ -27,7 +27,7 @@ namespace Neural_Networks
                     result.Add(value);
                 }
             }
-            return result;
+            return result.ToArray();
         }
 
         private int Brigtness(Color pixel)//яркость
